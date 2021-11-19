@@ -37,8 +37,28 @@ const getData = async (req, res) =>{
 }
 
 
-const updateData = async (req, res) =>{
+const dataUpdateById = async (req, res) =>{
     id = req.params.id;
-    
+    data = {
+        dogID: req.body.dogID,
+        name: req.body.name,
+        owner: req.body.owner,
+        dob: req.body.dob,
+        color: req.body.color
+    }
+
+    let {error} = schema.validate(data);
+    if(error){
+        return res.send(error.details[0].message);
+    }
+
+    try{
+        updated = await dogCollection.updateDataById(id, data);
+        // console.log(updated);
+        res.send("Data is successfully updated.");
+    }catch(err){
+        console.log(err);
+        res.send(err);
+    }
 }
-module.exports = {postData, getData};
+module.exports = {postData, getData, dataUpdateById};

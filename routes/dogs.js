@@ -6,6 +6,9 @@ const newRecord = dogsInfo.postData;
 router.post('/new-record', newRecord);
 
 const allInfo = dogsInfo.getData;
-router.get('/all-data', allInfo)
+router.get('/all-data', allInfo);
+
+const updateInfoById = dogsInfo.dataUpdateById;
+router.put('/update/:id', updateInfoById);
 
 module.exports = router;

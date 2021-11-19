@@ -8,8 +8,8 @@ const allData = () =>{
     return dogCollection.find({});
 }
 
-// const updateDataById = (id) =>{
-//     return dogCollection.update(godID: id, $set: req.body);
-// }
+const updateDataById = (id, dataToUpdate) =>{
+    return dogCollection.update({dogID: id}, {$set: dataToUpdate});
+}
 
-module.exports = {newRecord, allData};
+module.exports = {newRecord, allData, updateDataById};
