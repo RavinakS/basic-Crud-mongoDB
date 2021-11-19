@@ -11,4 +11,7 @@ router.get('/all-data', allInfo);
 const updateInfoById = dogsInfo.dataUpdateById;
 router.put('/update/:id', updateInfoById);
 
+const removeInfoById = dogsInfo.deleteDataByID;
+router.delete('/remove/:id', removeInfoById);
+
 module.exports = router;

@@ -12,4 +12,8 @@ const updateDataById = (id, dataToUpdate) =>{
     return dogCollection.update({dogID: id}, {$set: dataToUpdate});
 }
 
-module.exports = {newRecord, allData, updateDataById};
+const removeDataById = (id) =>{
+    return dogCollection.deleteOne({dogID: id});
+}
+
+module.exports = {newRecord, allData, updateDataById, removeDataById};

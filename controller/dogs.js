@@ -61,4 +61,16 @@ const dataUpdateById = async (req, res) =>{
         res.send(err);
     }
 }
-module.exports = {postData, getData, dataUpdateById};
+
+const deleteDataByID = async (req, res) =>{
+    id = req.params.id;
+    try{
+        removed = await dogCollection.removeDataById(id);
+        res.send({"status": "Successful", "deletedID": removed});
+    }catch(err){
+        console.log(err);
+        res.send(err);
+    }
+}
+
+module.exports = {postData, getData, dataUpdateById, deleteDataByID};
