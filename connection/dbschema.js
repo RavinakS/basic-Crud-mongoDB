@@ -5,6 +5,7 @@ const Schema = db.Schema;
 const Model = db.model;
 
 const postSchema = new Schema({
+    dogID: {type: Number},
     name: {type:'String'},
     dob: {type:Date},
     owner: {type:String},

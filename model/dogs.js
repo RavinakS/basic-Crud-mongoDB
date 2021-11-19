@@ -4,4 +4,12 @@ const newRecord = (data) =>{
     return dogCollection.create(data);
 }
 
-module.exports = {newRecord};
+const allData = () =>{
+    return dogCollection.find({});
+}
+
+// const updateDataById = (id) =>{
+//     return dogCollection.update(godID: id, $set: req.body);
+// }
+
+module.exports = {newRecord, allData};

@@ -1,6 +1,7 @@
 const Joi = require('joi');
 
 const validations = Joi.object({
+    dogID: Joi.number().required(),
     name: Joi.string().min(3).max(10).required(),
     owner: Joi.string().min(3).max(10).required(),
     dob: Joi.date().raw().required(),
